@@ -1,0 +1,3 @@
+interface CircularProgressBarProps {
+  percentage: number
+}
