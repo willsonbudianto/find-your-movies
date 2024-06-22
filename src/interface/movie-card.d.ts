@@ -5,4 +5,5 @@ interface MovieCardProps {
   release_date: string
   vote_average: number
   size?: string
+  movieRank?: number
 }

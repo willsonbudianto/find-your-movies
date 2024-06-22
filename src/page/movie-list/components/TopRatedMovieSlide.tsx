@@ -1,7 +1,10 @@
 import isEmpty from 'lodash/isEmpty'
 import { Suspense, useEffect } from 'react'
+import { LazyLoadImage } from 'react-lazy-load-image-component'
+import Skeleton from 'react-loading-skeleton'
 import { Navigation } from 'swiper/modules'
 import { Swiper, SwiperSlide } from 'swiper/react'
+import config from '../../../../config'
 import { useGetTopRatedMovieList } from '../../../api/query/movie-list'
 import MovieCard from '../../../components/card/MovieCard'
 import { useGlobalContext } from '../../../context/GlobalContext'
@@ -39,16 +42,28 @@ const TopRatedMovieSlide: React.FC = (): React.ReactElement | null => {
   return (
     <Suspense fallback={null}>
       <div className='custom-swiper-container'>
-        <p className='text-2xl font-bold pt-2'>Top Rated Movies</p>
-        <p className='text-sm font-medium pb-2'>Based on Viewers Vote Average</p>
+        <div className='flex flex-col pt-6 px-3'>
+          <div className='flex flex-row items-center gap-3'>
+            <LazyLoadImage
+              alt='top-rated-icon'
+              height={24}
+              placeholder={<Skeleton height={24} width={24} />}
+              src={`${config.assetsURL}icon/top-rated-icon.svg`}
+              width={24}
+            />
+            <p className='text-secondary-100 text-2xl font-bold'>Top Rated</p>
+          </div>
+          <p className='text-white font-light pt-1'>Based on Viewers Vote Average</p>
+        </div>
         <Swiper modules={[Navigation]} navigation={true} slidesPerView={6} spaceBetween={50}>
-          {topRatedMovieListData?.results?.map((movie: any) => {
+          {topRatedMovieListData?.results?.map((movie: any, index: number) => {
             const { title, id, poster_path, release_date, vote_average } = movie
 
             return (
-              <SwiperSlide key={movie.id} style={{ height: '350px' }}>
+              <SwiperSlide key={movie.id} style={{ height: '400px', alignContent: 'center' }}>
                 <MovieCard
                   id={id}
+                  movieRank={index + 1}
                   poster_path={poster_path}
                   release_date={release_date}
                   title={title}

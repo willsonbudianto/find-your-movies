@@ -1,6 +1,6 @@
 import { Suspense } from 'react'
+import DiscoverMovieList from './components/DiscoverMovieList'
 import NowPlayingMovieSlide from './components/NowPlayingMovieSlide'
-import PopularMovieList from './components/PopularMovieList'
 import TopRatedMovieSlide from './components/TopRatedMovieSlide'
 import UpcomingMovieSlide from './components/UpcomingMovieSlide'
 
@@ -13,7 +13,7 @@ const MovieList: React.FC = (): React.ReactElement | null => {
 
       <UpcomingMovieSlide />
 
-      <PopularMovieList />
+      <DiscoverMovieList />
     </Suspense>
   )
 }

@@ -38,13 +38,13 @@ const NowPlayingMovieSlide: React.FC = (): React.ReactElement | null => {
 
   return (
     <Suspense fallback={null}>
-      <p className='text-2xl font-bold py-2'>Now Playing Movies</p>
+      <p className='text-2xl text-white font-bold pt-6 px-3'>Now Playing</p>
       <Swiper modules={[Navigation]} navigation={true} slidesPerView={6} spaceBetween={35}>
         {nowPlayingMovieListData?.results?.map((movie: any) => {
           const { title, id, poster_path, release_date, vote_average } = movie
 
           return (
-            <SwiperSlide key={movie.id} style={{ height: '350px' }}>
+            <SwiperSlide key={movie.id} style={{ height: '400px', alignContent: 'center' }}>
               <MovieCard
                 id={id}
                 poster_path={poster_path}

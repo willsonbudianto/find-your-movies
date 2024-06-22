@@ -14,14 +14,14 @@ export function useGetNowPlayingMovieList(params: any, options: any): UseQueryRe
   )
 }
 
-export const getPopularMovieList = 'GetPopularMovieList'
+export const getDiscoverMovieList = 'GetDiscoverMovieList'
 
-export function useGetPopularMovieList(params: any, options: any): UseQueryResult<any, unknown> {
+export function useGetDiscoverMovieList(params: any, options: any): UseQueryResult<any, unknown> {
   const { handleChangeState: changeMovieListContext } = useMovieListContext()
 
   return useQuery(
-    [getPopularMovieList, params],
-    queryWrapper(movieListAPI.getPopularMovieList, (res: ApiResponse) => res.data),
+    [getDiscoverMovieList, params],
+    queryWrapper(movieListAPI.getDiscoverMovieList, (res: ApiResponse) => res.data),
     {
       ...options,
       onSettled: (res: ApiResponse) => {

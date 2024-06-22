@@ -10,6 +10,9 @@ import './app.scss'
 import { GlobalProvider } from './context/GlobalContext'
 
 const MovieListIndex = lazy(() => import('./page/MovieListIndex'))
+const MovieDetailIndex = lazy(() => import('./page/MovieDetailIndex'))
+const SearchResultIndex = lazy(() => import('./page/SearchResultIndex'))
+const ErrorNotFound = lazy(() => import('./components/error/ErrorNotFound'))
 
 const App: React.FC = (): React.ReactElement => {
   return (
@@ -19,6 +22,9 @@ const App: React.FC = (): React.ReactElement => {
         <GlobalProvider>
           <Routes>
             <Route element={<MovieListIndex />} path='/' />
+            <Route element={<MovieDetailIndex />} path='/detail' />
+            <Route element={<SearchResultIndex />} path='/search' />
+            <Route element={<ErrorNotFound />} path='/*' />
           </Routes>
         </GlobalProvider>
       </BrowserRouter>

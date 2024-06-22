@@ -21,8 +21,8 @@ const create = (): any => {
     return tmdbWrapper.get('/movie/now_playing', data, headers())
   }
 
-  const getPopularMovieList = (data: any): Promise<ApiResponse<unknown, unknown>> => {
-    return tmdbWrapper.get('/movie/popular', data, headers())
+  const getDiscoverMovieList = (data: any): Promise<ApiResponse<unknown, unknown>> => {
+    return tmdbWrapper.get('/discover/movie', data, headers())
   }
 
   const getTopRatedMovieList = (data: any): Promise<ApiResponse<unknown, unknown>> => {
@@ -33,16 +33,11 @@ const create = (): any => {
     return tmdbWrapper.get('/movie/upcoming', data, headers())
   }
 
-  const getSearchMovieData = (data: any): Promise<ApiResponse<unknown, unknown>> => {
-    return tmdbWrapper.get('/search/movie', data, headers())
-  }
-
   return {
     getNowPlayingMovieList,
-    getPopularMovieList,
+    getDiscoverMovieList,
     getTopRatedMovieList,
     getUpcomingMovieList,
-    getSearchMovieData,
   }
 }
 

@@ -12,16 +12,30 @@ const MovieCard: React.FC<MovieCardProps> = ({
   release_date,
   vote_average,
   size = 'large',
+  movieRank,
 }: MovieCardProps): React.ReactElement | null => {
-  const cardSize = size === 'x-large' ? 'w-56' : 'w-48'
-  const imageWidth = size === 'x-large' ? 224 : 192
+  let cardSize = 'w-48'
+  let imageWidth = 192
+
+  if (size === 'x-large') {
+    cardSize = 'w-56'
+    imageWidth = 224
+  }
+
+  const redirectTitle = title.toLowerCase().replace(/[^a-z0-9-]/g, '-')
 
   return (
     <Suspense fallback={null}>
       <div
-        className={`flex flex-col rounded-xl shadow-md ${cardSize} cursor-pointer flex-grow`}
+        className={`flex flex-col rounded-xl shadow-md ${cardSize} cursor-pointer flex-grow transform transition-transform duration-300 hover:scale-110 hover:shadow-lg hover:z-10`}
         key={id}
+        onClick={() => (window.location.href = `/detail?id=${id}&title=${redirectTitle}`)}
       >
+        {movieRank && (
+          <div className='absolute text-2xl text-primary-100 bg-gradient-to-br from-secondary-200 to-yellow-100 rounded-tl-xl rounded-br-3xl p-5 font-extrabold'>
+            {movieRank}
+          </div>
+        )}
         <LazyLoadImage
           alt={`${title} poster`}
           className='rounded-t-xl'

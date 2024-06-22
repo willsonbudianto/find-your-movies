@@ -1,4 +1,4 @@
-export default function ButtonOutline({
+export default function Button({
   additionalClass,
   id,
   onClick,
@@ -7,8 +7,8 @@ export default function ButtonOutline({
   return (
     <button
       {...(id ? { id } : {})}
-      className={`border border-secondary-100 text-secondary-100 rounded-full ${additionalClass || ''} cursor-pointer
-        }`}
+      className={`bg-primary-100 rounded-full ${additionalClass || ''} text-white cursor-pointer
+      }`}
       type='button'
       onClick={onClick}
     >

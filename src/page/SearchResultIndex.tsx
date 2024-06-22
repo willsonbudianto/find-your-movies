@@ -1,15 +1,15 @@
 import Main from '../components/layout/Main'
-import { MovieListProvider } from '../context/MovieListContext'
-import MovieList from './movie-list/MovieList'
+import { SearchProvider } from '../context/SearchContext'
+import SearchResultPage from './search/SearchResult'
 
-const SearchReultIndex = (): JSX.Element => {
+const SearchResultIndex = (): JSX.Element => {
   return (
-    <MovieListProvider>
+    <SearchProvider>
       <Main>
-        <MovieList />
+        <SearchResultPage />
       </Main>
-    </MovieListProvider>
+    </SearchProvider>
   )
 }
 
-export default SearchReultIndex
+export default SearchResultIndex

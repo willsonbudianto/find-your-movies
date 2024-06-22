@@ -14,7 +14,7 @@ const UpcomingMovieSlide: React.FC = (): React.ReactElement | null => {
     useGetUpcomingMovieList(
       {
         language: 'en - US',
-        page: 2,
+        page: 1,
       },
       {
         enabled: true,
@@ -39,28 +39,32 @@ const UpcomingMovieSlide: React.FC = (): React.ReactElement | null => {
 
   return (
     <Suspense fallback={null}>
-      <p className='text-2xl font-bold pt-2'>Upcoming Movies</p>
-      <p className='text-sm font-medium pb-2'>
-        Period Date: {dayjs(upcomingMovieListData?.dates?.minimum).format('DD MMMM YYYY')} -{' '}
-        {dayjs(upcomingMovieListData?.dates?.maximum).format('DD MMMM YYYY')}
-      </p>
-      <Swiper modules={[Navigation]} navigation={true} slidesPerView={6} spaceBetween={35}>
-        {upcomingMovieListData?.results?.map((movie: any) => {
-          const { title, id, poster_path, release_date, vote_average } = movie
+      <div className='custom-swiper-container-2'>
+        <div className='flex flex-col text-white pt-6 px-3'>
+          <p className='text-2xl font-bold'>Upcoming</p>
+          <p className='font-light pt-1'>
+            Period Date: {dayjs(upcomingMovieListData?.dates?.minimum).format('DD MMMM YYYY')} -{' '}
+            {dayjs(upcomingMovieListData?.dates?.maximum).format('DD MMMM YYYY')}
+          </p>
+        </div>
+        <Swiper modules={[Navigation]} navigation={true} slidesPerView={6} spaceBetween={35}>
+          {upcomingMovieListData?.results?.map((movie: any) => {
+            const { title, id, poster_path, release_date, vote_average } = movie
 
-          return (
-            <SwiperSlide key={movie.id} style={{ height: '350px' }}>
-              <MovieCard
-                id={id}
-                poster_path={poster_path}
-                release_date={release_date}
-                title={title}
-                vote_average={vote_average}
-              />
-            </SwiperSlide>
-          )
-        })}
-      </Swiper>
+            return (
+              <SwiperSlide key={movie.id} style={{ height: '400px', alignContent: 'center' }}>
+                <MovieCard
+                  id={id}
+                  poster_path={poster_path}
+                  release_date={release_date}
+                  title={title}
+                  vote_average={vote_average}
+                />
+              </SwiperSlide>
+            )
+          })}
+        </Swiper>
+      </div>
     </Suspense>
   )
 }
