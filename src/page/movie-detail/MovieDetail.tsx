@@ -61,10 +61,6 @@ const MovieDetail: React.FC = (): React.ReactElement | null => {
   }
 
   useEffect(() => {
-    localStorage.setItem('savedUrl', window.location.href)
-  }, [])
-
-  useEffect(() => {
     if (isFetchingMovieDetailData || isFetchingMovieCastData) {
       changeGlobalContext('isLoading', true)
       changeGlobalContext('loadingMessage', 'Please Wait...')

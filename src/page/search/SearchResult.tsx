@@ -72,6 +72,10 @@ const SearchResultPage: React.FC = (): React.ReactElement | null => {
   }
 
   useEffect(() => {
+    localStorage.setItem('savedUrl', window.location.href)
+  }, [])
+
+  useEffect(() => {
     refetch()
   }, [searchContext?.searchPage])
 
