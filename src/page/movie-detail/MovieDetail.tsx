@@ -180,7 +180,7 @@ const MovieDetail: React.FC = (): React.ReactElement | null => {
 
             return (
               <div className='border border-solid border-secondary-100 rounded-full' key={id}>
-                <p className='text-sm font-bold text-secondary-200 p-2'>{name}</p>
+                <p className='text-sm font-bold text-secondary-100 p-2'>{name}</p>
               </div>
             )
           })}

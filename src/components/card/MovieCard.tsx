@@ -32,7 +32,7 @@ const MovieCard: React.FC<MovieCardProps> = ({
         onClick={() => (window.location.href = `/detail?id=${id}&title=${redirectTitle}`)}
       >
         {movieRank && (
-          <div className='absolute text-2xl text-primary-100 bg-gradient-to-br from-secondary-200 to-yellow-100 rounded-tl-xl rounded-br-3xl p-5 font-extrabold'>
+          <div className='absolute text-2xl text-primary-100 bg-gradient-to-br from-secondary-100 to-yellow-100 rounded-tl-xl rounded-br-3xl p-5 font-extrabold'>
             {movieRank}
           </div>
         )}
