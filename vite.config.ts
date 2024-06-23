@@ -1,7 +1,7 @@
 import react from '@vitejs/plugin-react-swc'
 import { defineConfig, loadEnv } from 'vite'
 
-export default ({ mode }) => {
+export default ({ mode }: any) => {
   const env = loadEnv(mode, process.cwd(), '')
 
   return defineConfig({
