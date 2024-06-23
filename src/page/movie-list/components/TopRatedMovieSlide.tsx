@@ -55,12 +55,36 @@ const TopRatedMovieSlide: React.FC = (): React.ReactElement | null => {
           </div>
           <p className='text-white font-light pt-1'>Based on Viewers Vote Average</p>
         </div>
-        <Swiper modules={[Navigation]} navigation={true} slidesPerView={6} spaceBetween={50}>
+        <Swiper
+          breakpoints={{
+            445: {
+              slidesPerView: 3,
+              spaceBetween: 20,
+            },
+            660: {
+              slidesPerView: 4,
+              spaceBetween: 25,
+            },
+            1024: {
+              slidesPerView: 5,
+              spaceBetween: 30,
+            },
+            1280: {
+              slidesPerView: 6,
+              spaceBetween: 35,
+            },
+          }}
+          className='z-0'
+          modules={[Navigation]}
+          navigation={true}
+          slidesPerView={2}
+          spaceBetween={15}
+        >
           {topRatedMovieListData?.results?.map((movie: any, index: number) => {
             const { title, id, poster_path, release_date, vote_average } = movie
 
             return (
-              <SwiperSlide key={movie.id} style={{ height: '400px', alignContent: 'center' }}>
+              <SwiperSlide className='flex items-center justify-center h-[400px]' key={id}>
                 <MovieCard
                   id={id}
                   movieRank={index + 1}

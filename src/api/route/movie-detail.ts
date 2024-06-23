@@ -21,8 +21,13 @@ const create = (): any => {
     return tmdbWrapper.get(`movie/${data.id}`, {}, headers())
   }
 
+  const getMovieCastData = (data: { movie_id: number }): Promise<ApiResponse<unknown, unknown>> => {
+    return tmdbWrapper.get(`movie/${data.movie_id}/credits`, {}, headers())
+  }
+
   return {
     getMovieDetailData,
+    getMovieCastData,
   }
 }
 

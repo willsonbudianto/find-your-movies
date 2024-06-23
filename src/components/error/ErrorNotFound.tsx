@@ -11,17 +11,19 @@ const ErrorNotFound: React.FC = (): React.ReactElement => {
 
   return (
     <Main additionalClass='bg-white'>
-      <div className='flex flex-col items-center justify-start flex-grow p6 gap-4 bg-white'>
+      <div className='flex flex-col items-center justify-start flex-grow p-6 gap-4 bg-white'>
         <LazyLoadImage
           alt='error-not-found'
           height={225}
           placeholder={<Skeleton height={225} width={450} />}
-          src={`${config.assetsURL}images/error-not-found.gif`}
+          src={`${config.assetsURL}gif/error-not-found.gif`}
           width={450}
         />
+
         <p className='font-semibold text-center text-lg'>Error Not Found</p>
+
         <Button
-          additionalClass='w-[30%] py-2.5 rounded-md font-semibold'
+          additionalClass='py-2.5 rounded-full font-semibold'
           title='Back to Homepage'
           onClick={() => handleBackHomepage()}
         />

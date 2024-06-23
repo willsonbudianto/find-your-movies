@@ -1,5 +1,8 @@
-const CircularProgressBar: React.FC<CircularProgressBarProps> = ({ percentage }) => {
-  const size = 34
+const CircularProgressBar: React.FC<CircularProgressBarProps> = ({
+  size = 34,
+  percentage,
+  percentageFontClassName = 'text-xs',
+}) => {
   const strokeWidth = 3
 
   const radius = (size - strokeWidth) / 2
@@ -39,7 +42,9 @@ const CircularProgressBar: React.FC<CircularProgressBarProps> = ({ percentage })
           strokeWidth={strokeWidth}
         />
       </svg>
-      <div className='absolute inset-0 flex items-center justify-center text-xs font-bold'>
+      <div
+        className={`absolute inset-0 flex items-center justify-center ${percentageFontClassName} font-bold`}
+      >
         {percentage}
       </div>
     </div>

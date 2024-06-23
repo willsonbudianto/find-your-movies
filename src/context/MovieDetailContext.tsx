@@ -4,17 +4,13 @@ import useMemoState from '../hooks/useMemoState'
 export const MovieDetailContext: React.Context<object | any> = createContext({})
 
 type InitialState = {
-  page: number
-  movieListResult: any
-  genres: any
-  searchPage: number
+  cast: any
+  crew: any
 }
 
 const initialState: InitialState = {
-  page: 1,
-  movieListResult: [],
-  genres: {},
-  searchPage: 1,
+  cast: [],
+  crew: [],
 }
 
 export const MovieDetailProvider = ({ children }: ChildrenProps): React.ReactElement => {

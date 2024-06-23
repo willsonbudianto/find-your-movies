@@ -13,12 +13,12 @@ const MovieCard: React.FC<MovieCardProps> = ({
   vote_average,
   size = 'large',
   movieRank,
-}: MovieCardProps): React.ReactElement | null => {
-  let cardSize = 'w-48'
+}: MovieCardProps): React.ReactElement => {
+  let cardSize = 'max-[715px]:w-36 w-48'
   let imageWidth = 192
 
   if (size === 'x-large') {
-    cardSize = 'w-56'
+    cardSize = 'max-[400px]:w-[156px] max-[715px]:w-44 w-56'
     imageWidth = 224
   }
 
@@ -27,7 +27,7 @@ const MovieCard: React.FC<MovieCardProps> = ({
   return (
     <Suspense fallback={null}>
       <div
-        className={`flex flex-col rounded-xl shadow-md ${cardSize} cursor-pointer flex-grow transform transition-transform duration-300 hover:scale-110 hover:shadow-lg hover:z-10`}
+        className={`flex flex-col rounded-xl shadow-md ${cardSize} cursor-pointer flex-grow transform transition-transform duration-300 hover:scale-110 hover:shadow-lg`}
         key={id}
         onClick={() => (window.location.href = `/detail?id=${id}&title=${redirectTitle}`)}
       >

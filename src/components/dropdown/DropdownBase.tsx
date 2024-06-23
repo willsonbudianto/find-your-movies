@@ -8,9 +8,9 @@ export default function DropdownBase({
   children,
 }: DropdownProps): React.ReactElement {
   return (
-    <div className='relative w-[15%] '>
+    <div className='relative max-[450px]:w-[65%] max-[575px]:w-[50%] w-[30%]'>
       <div
-        className='flex flex-row items-center justify-between rounded-full bg-white px-3 py-1.5 cursor-pointer'
+        className='flex flex-row items-center justify-between rounded-full bg-white px-3 py-1 cursor-pointer'
         onClick={() => onClick?.()}
       >
         <p className='text-sm line-clamp-1 font-bold pl-1'>{title}</p>

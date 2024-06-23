@@ -47,12 +47,36 @@ const UpcomingMovieSlide: React.FC = (): React.ReactElement | null => {
             {dayjs(upcomingMovieListData?.dates?.maximum).format('DD MMMM YYYY')}
           </p>
         </div>
-        <Swiper modules={[Navigation]} navigation={true} slidesPerView={6} spaceBetween={35}>
+        <Swiper
+          breakpoints={{
+            445: {
+              slidesPerView: 3,
+              spaceBetween: 20,
+            },
+            660: {
+              slidesPerView: 4,
+              spaceBetween: 25,
+            },
+            1024: {
+              slidesPerView: 5,
+              spaceBetween: 30,
+            },
+            1280: {
+              slidesPerView: 6,
+              spaceBetween: 35,
+            },
+          }}
+          className='z-0'
+          modules={[Navigation]}
+          navigation={true}
+          slidesPerView={2}
+          spaceBetween={15}
+        >
           {upcomingMovieListData?.results?.map((movie: any) => {
             const { title, id, poster_path, release_date, vote_average } = movie
 
             return (
-              <SwiperSlide key={movie.id} style={{ height: '400px', alignContent: 'center' }}>
+              <SwiperSlide className='flex items-center justify-center h-[400px]' key={id}>
                 <MovieCard
                   id={id}
                   poster_path={poster_path}

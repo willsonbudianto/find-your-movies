@@ -7,3 +7,11 @@ interface MovieCardProps {
   size?: string
   movieRank?: number
 }
+
+interface CastCardProps {
+  id: number
+  name: string
+  original_name: string
+  character: string
+  profile_path: string
+}

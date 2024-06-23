@@ -4,6 +4,8 @@ interface ApiResponse {
   message: string
   success: boolean
   results: any
+  cast: any
+  crew: any
 }
 
 interface AdditionalClassProps {

@@ -9,8 +9,8 @@ const LoadingFullScreen: React.FC<LoadingProps> = ({
 
   return createPortal(
     <div className='fade-in-effect flex w-full h-full fixed inset-0 bg-black/50 z-50'>
-      <div className='flex items-center m-auto w-full h-full'>
-        <div className='flex flex-col items-center text-center text-sm bg-white m-auto rounded-lg px-6 py-5 w-1/5'>
+      <div className='flex items-center m-auto w-full h-full max-[500px]:max-w-4xl'>
+        <div className='flex flex-col items-center text-center text-sm bg-white m-auto rounded-lg px-6 py-5 w-2/3 min-[500px]:w-1/5'>
           <LoadingDots />
           <p>{message || 'Loading...'}</p>
         </div>
